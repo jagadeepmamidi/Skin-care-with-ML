@@ -1,0 +1,44 @@
+version: 2
+
+models:
+  - name: stg_products
+    description: Cleaned product grain from Sephora CSV + product API.
+    columns:
+      - name: product_id
+        tests: [not_null, unique]
+      - name: brand
+        tests: [not_null]
+      - name: price
+        tests: [not_null, non_negative]
+
+  - name: dim_product
+    description: Product dimension current rows. SCD Type 2 history is in snapshots.products_snapshot.
+    columns:
+      - name: product_id
+        tests: [not_null, unique]
+      - name: is_current
+        tests: [not_null]
+
+  - name: fact_product_events
+    description: Event-level fact — one row per customer interaction.
+    columns:
+      - name: event_id
+        tests: [not_null, unique]
+      - name: event_type
+        tests:
+          - accepted_values:
+              values: ['VIEW_PRODUCT', 'SEARCH', 'ADD_TO_CART', 'PURCHASE', 'REVIEW']
+
+  - name: fact_price_history
+    description: Price observations by product and retailer.
+    columns:
+      - name: product_id
+        tests: [not_null]
+      - name: price
+        tests: [not_null, non_negative]
+
+  - name: gold_ml_product_features
+    description: Feature table consumed by the recommendation engine.
+    columns:
+      - name: product_id
+        tests: [not_null, unique]

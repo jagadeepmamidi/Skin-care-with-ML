@@ -1,0 +1,23 @@
+-- Logical star-schema documentation (implemented in dbt marts).
+--
+--                         dim_brand
+--                             |
+-- dim_date  ------ fact_product_events ------ dim_product  (SCD2 via snapshot)
+--                             |
+--                       dim_customer
+--
+-- fact_price_history
+--   |- dim_product
+--   |- dim_date
+--   |- dim_retailer
+--
+-- fact_sales
+--   |- dim_product
+--   |- dim_date
+--   |- dim_customer
+--
+-- Grain:
+--   fact_product_events  = one row per interaction event
+--   fact_price_history   = one row per product/retailer/timestamp
+--   fact_sales           = one row per PURCHASE event
+--   dim_product          = one current row per product_id; history in snapshots.products_snapshot
