@@ -27,6 +27,7 @@ derby.log
 dbt/target/
 dbt/dbt_packages/
 dbt/logs/
+dbt/.user.yml
 
 # Data lake & generated datasets (raw CSV is tracked)
 data/lake/
