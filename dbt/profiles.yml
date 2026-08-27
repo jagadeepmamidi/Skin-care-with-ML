@@ -1,0 +1,17 @@
+skincare_platform:
+  target: "{{ env_var('DBT_TARGET', 'duckdb') }}"
+  outputs:
+    duckdb:
+      type: duckdb
+      path: "{{ env_var('DUCKDB_PATH', '../data/warehouse/skincare.duckdb') }}"
+      schema: main
+      threads: 4
+    postgres:
+      type: postgres
+      host: "{{ env_var('POSTGRES_HOST', 'localhost') }}"
+      user: "{{ env_var('POSTGRES_USER', 'skincare') }}"
+      password: "{{ env_var('POSTGRES_PASSWORD', 'skincare') }}"
+      port: "{{ env_var('POSTGRES_PORT', '5432') | int }}"
+      dbname: "{{ env_var('POSTGRES_DB', 'skincare') }}"
+      schema: analytics
+      threads: 4

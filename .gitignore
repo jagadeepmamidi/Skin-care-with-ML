@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+dist/
+build/
+.venv/
+venv/
+.env
+.python-version
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+*.log
+
+# Spark / Java
+spark-warehouse/
+metastore_db/
+derby.log
+.ivy2/
+
+# dbt
+dbt/target/
+dbt/dbt_packages/
+dbt/logs/
+
+# Data lake & generated datasets (raw CSV is tracked)
+data/lake/
+data/generated/
+data/warehouse/
+data/exports/
+dashboards/powerbi/exports/
+ml/artifacts/
+quarantine/
+*.parquet
+!tests/fixtures/**/*.parquet
+
+# Local secrets / runtime
+airflow/logs/
+airflow/tmp/
+minio-data/
+postgres-data/
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+*.swp
+
+# ML artifacts
+ml/artifacts/
+*.pkl
+*.joblib

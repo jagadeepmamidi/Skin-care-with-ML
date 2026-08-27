@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: raw
+    tables:
+      - name: raw_products
+      - name: raw_ingredients
+      - name: raw_product_ingredients
+      - name: raw_prices
+      - name: raw_events
+      - name: raw_product_activity
+      - name: raw_event_daily
