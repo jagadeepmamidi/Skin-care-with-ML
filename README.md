@@ -82,9 +82,6 @@ docs/                       architecture + pipeline runbook
 
 The original files `cosmetics.csv` and `m.ipynb` are kept. Prefer `data/raw/cosmetics.csv` for new work.
 
-## Resume bullet (only after you have run this repo)
-
-> Engineered a containerized batch (+ optional streaming) skincare data platform with Python, Airflow, PySpark, dbt, MinIO/S3 and Parquet. Implemented Bronze/Silver/Gold processing, incremental ETL, a Kimball star schema with SCD Type 2, automated quality gates and dead-letter quarantine, and Gold ML features that power a content-based recommendation engine and analytics dashboards.
 
 ## License / data
 
